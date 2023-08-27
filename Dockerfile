@@ -1,5 +1,5 @@
 ARG ARCH="amd64"
-FROM timeloopaccelergy/accelergy-timeloop-infrastructure:latest-${ARCH}
+FROM timeloopaccelergy/accelergy-timeloop-infrastructure-pim:latest-${ARCH}
 
 LABEL maintainer="timeloop-accelergy@mit.edu"
 
@@ -66,14 +66,14 @@ RUN python3 -m pip install git+https://github.com/Accelergy-Project/pytorch2time
 RUN echo "**** install required packages ****" && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-               libgl1 \
-               fonts-freefont-ttf \
-               ttf-dejavu-core && \
+    libgl1 \
+    fonts-freefont-ttf \
+    ttf-dejavu-core && \
     echo "**** cleanup ****" && \
     apt-get clean && \
     rm -rf \
-       /tmp/* \
-       /var/lib/apt/lists/*
+    /tmp/* \
+    /var/lib/apt/lists/*
 
 RUN python3 -m pip install git+https://github.com/Fibertree-Project/fibertree
 
@@ -99,6 +99,7 @@ WORKDIR /home/workspace/
 # Install Yaml Widgets
 #
 RUN python3 -m pip install git+https://github.com/jsemer/yamlwidgets
+RUN python3 -m pip install tqdm
 
 EXPOSE 8888
 
