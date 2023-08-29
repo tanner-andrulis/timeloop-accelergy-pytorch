@@ -20,7 +20,7 @@ DOCKER_NAME ?= timeloopaccelergy
 VERSION := 0.2
 
 USER    := timeloopaccelergy
-REPO    := timeloop-accelergy-pytorch
+REPO    := timeloop-accelergy-pytorch-pim
 
 NAME    := ${USER}/${REPO}
 TAG     := $$(git log -1 --pretty=%h)
